@@ -12,3 +12,6 @@ def get_summary(text: str) -> str:
     response = model.generate_content(f"You are the summarization expert. Read the following text and summarize it clearly: {text}")
     return response.text
 
+def generate_response_from_prompt(prompt: str) -> str:
+    response = model.generate_content(f"Generate content based on this prompt: {prompt}")
+    return response.text

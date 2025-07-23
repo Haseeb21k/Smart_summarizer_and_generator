@@ -1,13 +1,22 @@
 from pydantic import BaseModel
 from datetime import datetime
 
-class text_input(BaseModel):
-    text: str
+class FeatureModelInput(BaseModel):
+    task: str
+    text: str = None
+    prompt: str = None
+
+class FeatureModelOutput(BaseModel):
+    result: str
+
+class PromptInput(BaseModel):
+    prompt: str
+
+class GenerateOutput(BaseModel):
+    content: str
 
 class text_output(BaseModel):
-    id: int
-    summary_text: str
-    created_at: datetime
+    text: str
 
-    class Config:
-        orm_mode = True
+class text_input(BaseModel):
+    text: str
